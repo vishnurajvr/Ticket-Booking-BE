@@ -7,7 +7,7 @@ exports.up = function (knex) {
         table.increments('id').primary();
         table.string('name', 100).notNullable();
         table.integer('userId').unsigned().references('id').inTable('User').onDelete('CASCADE').onUpdate('CASCADE').notNullable().index();
-        table.boolean('isClosed').defaultTo(false);
+        table.boolean('isOpened').defaultTo(true);
         table.timestamps(true, true, true);
     });
 };

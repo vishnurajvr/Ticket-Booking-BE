@@ -1,30 +1,34 @@
 const { Model } = require("objection");
 
-class Timings extends Model {
+class Shows extends Model {
 
     static get tableName() {
-        return "Timings"
+        return "Shows"
     }
 
     /**
     @TODO static get jsonSchema()
     */
 
+    $beforeUpdate() {
+        this.updatedAt = new Date();
+    }
+
     static get relationMappings() {
 
-        const Screens = require('./Screens');
+        const Movies = require('./Movies');
 
         return {
             screen: {
                 relation: Model.BelongsToOneRelation,
-                modelClass: Screens,
+                modelClass: Movies,
                 join: {
-                    from: 'Timings.screenId',
-                    to: 'Screens.id'
+                    from: 'Shows.movieId',
+                    to: 'Movies.id'
                 }
             }
         }
     }
 }
 
-module.exports = Timings;
+module.exports = Shows;

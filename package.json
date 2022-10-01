@@ -5,7 +5,8 @@
   "license": "MIT",
   "author": {
     "name": "Vishnuraj",
-    "email": "vishnuraj@doodleblue.com"
+    "email": "vishnuraj@doodleblue.com",
+    "url": "https://github.com/vishnurajvr/Ticket-Booking-BE.git"
   },
   "scripts": {
     "dev": "nodemon server.js"

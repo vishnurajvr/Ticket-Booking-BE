@@ -77,3 +77,31 @@ User:
 
 Admin:
     eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwibmFtZSI6IlRFU1QyIiwiaWF0IjoxNjY0NDUyNDQ4LCJleHAiOjE2NzQ0NTYwNDh9.iXf3rkiwceYHPEkNijaKKVtuwO8dKqpEGTh4Q0lKg4A
+
+<!-- 
+
+Section - 3
+rowCount - 14 
+columnCount - 17 
+totalSeats - 14 * 17 = 238 
+
+
+        Class A - 220
+Row1    A 1  2  3  4       5  6  7  8  9  10      11  12  13  14
+Row2    B 1  2  3  4  5    6  7  8  9  10 11   12 13  14  15  15
+Row3    C 1  2  3  4  5    6  7  8  9  10 11   12 13  14  15  15
+Row4    D 1  2  3  4  5    6  7  8  9  10 11   12 13  14  15  15
+Row5    E 1  2  3  4  5    6  7  8  9  10 11   12 13  14  15  15
+Row6
+        Class B - 150
+Row7    F                  1  2  3  4  5  6
+Row8    G 1  2  3  4  5    6  7  8  9  10 11   12 13  14  15  15
+Row9    H 1  2  3  4  5    6  7  8  9  10 11   12 13  14  15  15
+Row10   I 1  2  3  4  5    6  7  8  9  10 11   12 13  14  15  15
+Row11   J 1  2  3  4  5    6  7  8  9  10 11   12 13  14  15  15
+Row12
+        Class C - 100
+Row13   K 1  2  3  4  5    6  7  8  9  10 11   12 13  14  15  15
+Row14   L 1  2  3  4  5    6  7  8  9  10 11   12 13  14  15  15
+
+-->

@@ -6,12 +6,9 @@ class Seats extends Model {
         return "Seats"
     }
 
-    static get jsonSchema() {
-        return {
-            type: 'object',
-            required: ['date', 'screenId', 'timingId', 'seatName'],
-        }
-    }
+    /**
+    @TODO static get jsonSchema()
+    */
 
     $beforeUpdate() {
         this.updatedAt = new Date();
@@ -19,24 +16,24 @@ class Seats extends Model {
 
     static get relationMappings() {
 
-        const Timings = require('./Timings');
-        const Screens = require('./Screens');
+        const Sections = require('./Sections');
+        const ReservationSeats = require('./ReservationSeats');
 
         return {
-            timing: {
+            section: {
                 relation: Model.BelongsToOneRelation,
-                modelClass: Timings,
+                modelClass: Sections,
                 join: {
-                    from: 'Seats.timingId',
-                    to: "Timings.id"
+                    from: 'Seats.sectionId',
+                    to: 'Sections.id'
                 }
             },
-            screen: {
-                relation: Model.BelongsToOneRelation,
-                modelClass: Screens,
+            reservationSeat: {
+                relation: Model.HasManyRelation,
+                modelClass: ReservationSeats,
                 join: {
-                    from: 'Seats.screenId',
-                    to: "Screens.id"
+                    from: 'Seats.id',
+                    to: 'ReservationSeats.seatsId'
                 }
             },
         }

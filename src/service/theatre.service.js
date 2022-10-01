@@ -3,6 +3,7 @@ const { Screens, Theatres, Reservation, User } = require('../database/models');
 
 // Helpers
 const Response = require('../utils/response');
+const pageMeta = require("../helper/pageMeta");
 
 class TheatreService { }
 
@@ -10,9 +11,13 @@ TheatreService.createTheatre = async (payload, userData) => {
     try {
 
         const findData = await Theatres.query().findOne({ name: payload.name, userId: userData.id });
-        if (findData) return Response.error('Theatre Name Already Exists');
+        if (findData) return Response.error('Theatre Name Already Exists', 400);
 
-        const result = await Theatres.query().insert({ name: payload.name, userId: userData.id });
+        const result = await Theatres.query().insert({
+            name: payload.name,
+            userId: userData.id,
+            isOpened: payload.isOpened
+        });
 
         return Response.success(result, 'Successfully created');
 
@@ -29,7 +34,7 @@ TheatreService.updateTheatre = async (params, payload) => {
         const findData = await Theatres.query().findOne({ id: params.id });
         if (!findData) return Response.error('Invalid Theatre Id');
 
-        if (payload.isClosed) {
+        if (!payload.isOpened) {
             const findReservation = await Reservation.query().where('theatreId', params.id).first();
             if (findReservation) return Response.error('We can\'t disable it. Alreay is Reseversation is there.', 400);
         }
@@ -49,17 +54,15 @@ TheatreService.getAllTheatre = async (queryData, userData) => {
 
         const { page, limit } = queryData || {};
 
-        const offset = +page * +limit;
-        const result = await Theatres.query().where((builder) => {
+        const { results, total } = await Theatres.query().where((builder) => {
 
-            if (!userData.admin) builder.where('isClosed', false);
+            if (!userData.admin) builder.where('isOpened', true);
             if (queryData.search?.toString().trim()) builder.where('name', queryData.search);
 
-            builder.offset(offset);
-            builder.limit(limit);
-        }).withGraphFetched('screen');
+        }).withGraphFetched('screen').page(page - 1, limit);
 
-        return Response.success(result, 'Successfully fetched');
+
+        return Response.success(pageMeta(total, limit, results), 'Successfully fetched');
 
     } catch (e) {
         console.log(e);
@@ -71,7 +74,7 @@ TheatreService.getTheatreById = async (params, userData) => {
     try {
 
         let query = { id: params.id };
-        if (!userData.admin) query.isClosed = false;
+        if (!userData.admin) query.isOpened = true;
 
         const result = await Theatres.query().findOne(query).withGraphFetched('screen');
 

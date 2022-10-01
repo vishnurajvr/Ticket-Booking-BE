@@ -6,28 +6,22 @@ class Reservation extends Model {
         return "Reservation"
     }
 
-    static get jsonSchema() {
-        return {
-            type: 'object',
-            required: ['date', 'userId', 'theatreId', 'screenId', 'timingId', 'seatsId'],
-        }
-    }
-
-    $beforeInsert() {
-        this.seatsId = JSON.stringify(this.seatsId);
-    }
+    /**
+    @TODO static get jsonSchema()
+    */
 
     $beforeUpdate() {
         this.updatedAt = new Date();
-        this.seatsId = JSON.stringify(this.seatsId);
     }
 
     static get relationMappings() {
 
         const User = require('./User');
+        const Movies = require('./Movies');
         const Timings = require('./Timings');
         const Screens = require('./Screens');
         const Theatres = require('./Theatres');
+        const ReservationSeats = require('./ReservationSeats');
 
         return {
             user: {
@@ -60,6 +54,22 @@ class Reservation extends Model {
                 join: {
                     from: 'Reservation.theatreId',
                     to: "Theatres.id"
+                }
+            },
+            movie: {
+                relation: Model.BelongsToOneRelation,
+                modelClass: Movies,
+                join: {
+                    from: 'Reservation.movieId',
+                    to: 'Movies.id'
+                }
+            },
+            reservationSeat: {
+                relation: Model.HasManyRelation,
+                modelClass: ReservationSeats,
+                join: {
+                    from: 'Reservation.id',
+                    to: 'ReservationSeats.reservationId'
                 }
             }
         }

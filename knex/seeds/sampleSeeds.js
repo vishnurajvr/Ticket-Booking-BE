@@ -6,6 +6,7 @@ const moment = require('moment');
  */
 exports.seed = async function (knex) {
 
+    /*
     await knex('User').del();
     await knex('Theatres').del();
     await knex('Movies').del();
@@ -104,5 +105,6 @@ exports.seed = async function (knex) {
         { id: 5, userId: 6, amount: 360, theatreId: 2, screenId: 3, timingId: 9, seatsId: '[10, 11, 13]', date: moment().toDate() },
         { id: 6, userId: 6, amount: 120, theatreId: 2, screenId: 3, timingId: 9, seatsId: '[12]', date: moment().add(1, 'day').toDate() },
     ])
+    */
 
 };

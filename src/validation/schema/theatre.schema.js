@@ -1,12 +1,12 @@
 const Joi = require('joi');
 
 const createTheatre = Joi.object({
-    isClosed: Joi.boolean().default(false),
+    isOpened: Joi.boolean().default(false),
     name: Joi.string().required().min(3).max(100)
 });
 
 const updateTheatre = Joi.object({
-    isClosed: Joi.boolean().default(false),
+    isOpened: Joi.boolean().default(false),
     name: Joi.string(),
 });
 

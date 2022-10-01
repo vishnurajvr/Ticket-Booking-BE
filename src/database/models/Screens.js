@@ -6,12 +6,9 @@ class Screens extends Model {
         return "Screens"
     }
 
-    static get jsonSchema() {
-        return {
-            type: 'object',
-            required: ['name', 'rowsCount', 'columnsCount', 'movieId', 'theatreId', 'totalSeats'],
-        }
-    }
+    /**
+    @TODO static get jsonSchema()
+    */
 
     $beforeUpdate() {
         this.updatedAt = new Date();
@@ -19,9 +16,9 @@ class Screens extends Model {
 
     static get relationMappings() {
 
-        const Seats = require('./Seats');
         const Movies = require('./Movies');
         const Timings = require('./Timings');
+        const Sections = require('./Sections');
         const Theatres = require('./Theatres');
         const Reservation = require('./Reservation');
 
@@ -42,20 +39,12 @@ class Screens extends Model {
                     to: "Movies.id"
                 }
             },
-            timing: {
-                relation: Model.BelongsToOneRelation,
-                modelClass: Timings,
-                join: {
-                    from: 'Screens.id',
-                    to: 'Timings.screenId'
-                }
-            },
-            seat: {
+            section: {
                 relation: Model.HasManyRelation,
-                modelClass: Seats,
+                modelClass: Sections,
                 join: {
                     from: 'Screens.id',
-                    to: 'Seats.screenId'
+                    to: 'Sections.screenId'
                 }
             },
             reservation: {
@@ -64,6 +53,14 @@ class Screens extends Model {
                 join: {
                     from: 'Screens.id',
                     to: "Reservation.screenId"
+                }
+            },
+            timing: {
+                relation: Model.HasManyRelation,
+                modelClass: Timings,
+                join: {
+                    from: 'Screens.id',
+                    to: 'Timings.screenId'
                 }
             }
         }

@@ -1,9 +1,9 @@
 const { Model } = require("objection");
 
-class Theatres extends Model {
+class ReservationSeats extends Model {
 
     static get tableName() {
-        return "Theatres"
+        return "ReservationSeats"
     }
 
     $beforeUpdate() {
@@ -14,45 +14,39 @@ class Theatres extends Model {
     @TODO static get jsonSchema()
     */
 
-    $formatJson(json) {
-        json = super.$formatJson(json);
-        json.isOpened = Boolean(json.isOpened ?? 1);
-        return json;
-    }
-
     static get relationMappings() {
 
         const User = require('./User');
-        const Screens = require('./Screens');
+        const Seats = require('./Seats');
         const Reservation = require('./Reservation');
-
+        
         return {
             user: {
                 relation: Model.BelongsToOneRelation,
                 modelClass: User,
                 join: {
-                    from: 'Theatres.userId',
+                    from: "ReservationSeats.userId",
                     to: "User.id"
                 }
             },
-            screen: {
-                relation: Model.HasManyRelation,
-                modelClass: Screens,
+            seat: {
+                relation: Model.BelongsToOneRelation,
+                modelClass: Seats,
                 join: {
-                    from: "Theatres.id",
-                    to: 'Screens.theatreId'
+                    from: "ReservationSeats.seatsId",
+                    to: "Seats.id"
                 }
             },
             reservation: {
-                relation: Model.HasManyRelation,
+                relation: Model.BelongsToOneRelation,
                 modelClass: Reservation,
                 join: {
-                    from: "Theatres.id",
-                    to: 'Reservation.theatreId'
+                    from: "ReservationSeats.reservationId",
+                    to: "Reservation.id"
                 }
             }
         }
     }
 }
 
-module.exports = Theatres;
+module.exports = ReservationSeats;

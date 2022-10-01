@@ -18,10 +18,11 @@ class User extends Model {
         this.updatedAt = new Date();
     }
 
+    /** @TODO */
     static get jsonSchema() {
         return {
             type: 'object',
-            required: ['name', 'gender', 'mobileNumber'],
+            // required: ['name', 'gender', 'mobileNumber'],
             properties: {
                 id: { type: 'integer' },
                 name: { type: 'string', minLength: 3, maxLength: 50 },
@@ -39,6 +40,7 @@ class User extends Model {
 
         const Theatres = require('./Theatres');
         const Reservation = require('./Reservation');
+        const ReservationSeats = require('./ReservationSeats');
 
         return {
             theatre: {
@@ -55,6 +57,14 @@ class User extends Model {
                 join: {
                     from: 'User.id',
                     to: 'Reservation.userId'
+                }
+            },
+            reservationSeat: {
+                relation: Model.HasManyRelation,
+                modelClass: ReservationSeats,
+                join: {
+                    from: 'User.id',
+                    to: 'ReservationSeats.userId'
                 }
             }
         }

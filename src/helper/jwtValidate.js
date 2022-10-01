@@ -50,13 +50,6 @@ const validateAdmin = async (data) => {
     return { isValid: true, credentials: { admin: true, ...data } };
 }
 
-const aldfs = async () => {
-    const result = User.query().findOne
-    console.log({ result })
-}
-
-aldfs();
-
 module.exports = {
     validate,
     validateUser,

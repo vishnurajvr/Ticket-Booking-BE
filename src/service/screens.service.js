@@ -36,7 +36,7 @@ ScreensService.createScreen = async (payload, userData) => {
             if (!getMovies) return Response.error('Invalid movies selected', 400);
             body.movieId = payload.movieId;
         }
-        
+
         if (payload.description) body.description = payload.description;
 
         const result = await Screens.query().insert(body);
@@ -52,15 +52,31 @@ ScreensService.createScreen = async (payload, userData) => {
 ScreensService.updateScreen = async (params, payload) => {
     try {
 
-        const findData = await Screens.query().findOne({ id: params.id });
-        if (!findData) return Response.error('Invalid Screen Id');
+        const findData = await Screens.query().findById(params.id);
 
-        if (payload.isClosed) {
-            const findReservation = await Reservation.query().where('theatreId', params.id).first();
-            if (findReservation) return Response.error('We can\'t disable it. Alreay is Reseversation is there.', 400);
+        if (!findData) return Response.error('Invalid screen');
+
+        let body = {};
+
+        if (payload.name) body.name = payload.name;
+        if (payload.price) body.price = payload.price;
+
+        // let body = {
+        //     rowsCount: payload.rowsCount,
+        //     isAvailable: payload.isAvailable,
+        //     columnsCount: payload.columnsCount,
+        //     totalSeats: payload.rowsCount * payload.columnsCount,
+        // };
+
+        if (payload.movieId) {
+            const getMovies = await Movies.query().findById(payload.movieId);
+            if (!getMovies) return Response.error('Invalid movies selected', 400);
+            body.movieId = payload.movieId;
         }
 
-        await Screens.query().where('id', params.id).update(payload);
+        if (payload.description) body.description = payload.description;
+
+        await Screens.query().findById(params.id).update(body);
 
         return Response.success(null, 'Successfully updated');
 

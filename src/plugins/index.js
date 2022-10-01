@@ -8,7 +8,17 @@ const plugins = async (server) => {
     await server.register({
         plugin: require('./theatre.plugins'),
         routes: { prefix: '/api/v1/theatre' }
-    })
+    });
+
+    await server.register({
+        plugin: require('./shows.plugins'),
+        routes: { prefix: '/api/v1/shows' }
+    });
+
+    await server.register({
+        plugin: require('./movies.plugins'),
+        routes: { prefix: '/api/v1/movies' }
+    });
 
 }
 
