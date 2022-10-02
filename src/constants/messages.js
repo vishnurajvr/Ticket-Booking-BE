@@ -15,4 +15,9 @@ module.exports = {
     invalidSeats: 'Invalid seats',
     invalidScreenId: 'Invalid screen id',
     updateScreenError1: 'Sorry!, We counldn\'t disable this screen, because reservation is going on there!',
+    invalidTiming: 'Invalid timing selected',
+    invalidDateSelected: 'Invalid date selected',
+    invalidPrice: 'Invalid total amounts',
+    recordNotFound: 'Record Not Found',
+    createReservationError: 'Invalid total seats count'
 };

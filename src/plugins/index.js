@@ -25,6 +25,11 @@ const plugins = async (server) => {
         routes: { prefix: '/api/v1/screens' }
     });
 
+    await server.register({
+        plugin: require('./reservation.plugins'),
+        routes: { prefix: '/api/v1/reservation' }
+    });
+
 }
 
 module.exports = plugins;

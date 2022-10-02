@@ -4,4 +4,5 @@ module.exports = {
     moviesRoutes: require('./v1/movies.routes'),
     screenRoutes: require('./v1/screens.routes'),
     theatreRoutes: require('./v1/theatre.routes'),
+    reservationRoutes: require('./v1/reservation.routes')
 };

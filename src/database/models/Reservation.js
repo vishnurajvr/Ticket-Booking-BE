@@ -1,3 +1,4 @@
+const moment = require('moment');
 const { Model } = require("objection");
 
 class Reservation extends Model {
@@ -12,6 +13,12 @@ class Reservation extends Model {
 
     $beforeUpdate() {
         this.updatedAt = new Date();
+    }
+
+    $formatJson(json) {
+        json = super.$formatJson(json);
+        json.date = moment(json.date).format('YYYY-MM-DD');
+        return json;
     }
 
     static get relationMappings() {

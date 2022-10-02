@@ -5,6 +5,7 @@
  exports.up = function (knex) {
     return knex.schema.createTable('ReservationSeats', (table) => {
         table.increments('id').primary();
+        table.string('displayName').notNullable();
         table.integer('userId').unsigned().references('id').inTable('User').onDelete('CASCADE').onUpdate('CASCADE').notNullable();
         table.integer('seatsId').unsigned().references('id').inTable('Seats').onDelete('CASCADE').onUpdate('CASCADE').notNullable();
         table.integer('reservationId').unsigned().references('id').inTable('Reservation').onDelete('CASCADE').onUpdate('CASCADE').notNullable();
