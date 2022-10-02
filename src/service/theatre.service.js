@@ -1,9 +1,12 @@
+const moment = require('moment')
+
 // Models
 const { Screens, Theatres, Reservation, User } = require('../database/models');
 
 // Helpers
 const Response = require('../utils/response');
 const pageMeta = require("../helper/pageMeta");
+const { pagination } = require('../helper/pagination');
 
 class TheatreService { }
 
@@ -102,6 +105,40 @@ TheatreService.deleteTheatre = async (params) => {
         await Theatres.query().findById(params.id).del();
 
         return Response.success(null, 'Successfully deleted');
+
+    } catch (e) {
+        console.log(e);
+        throw new Error(e.message);
+    }
+}
+TheatreService.getTheatresByMovieId = async (params, queryData) => {
+    try {
+
+        const FORMAT = 'YYYY-MM-DD';
+        const { page, limit, search } = queryData || {};
+        const date = moment(queryData.date).format(FORMAT);
+
+        const results = await Theatres.query()
+            .where((builder) => {
+                builder.where('isOpened', true);
+                if (search?.toString().trim()) builder.where('name', search);
+            })
+            .withGraphJoined({
+                screen: {
+                    timing: true,
+                    section: { seat: { reservationSeat: true } }
+                }
+            })
+            .where('screen.movieId', params.movieId)
+            .where('screen.endDate', '>=', date)
+            .where('screen.startDate', '<=', date);
+
+            console.log({results})
+
+        /** @TODO  - Pagination issue */
+
+        // return Response.success(pageMeta.pagination(page, limit, results), 'Successfully fetched');
+        return Response.success(results, 'Successfully fetched');
 
     } catch (e) {
         console.log(e);

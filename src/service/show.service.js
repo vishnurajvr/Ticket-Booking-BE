@@ -12,7 +12,7 @@ ShowService.getAllShows = async (query) => {
 
         const { page, limit } = query || {};
 
-        const result = await Shows.query().page(page).limit(limit);
+        const result = await Shows.query().page(page).limit(limit).withGraphFetched('movie');
 
         return Response.success(result, messages.successfullyFetch);
     } catch (e) {

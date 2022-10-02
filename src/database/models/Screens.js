@@ -1,3 +1,4 @@
+const moment = require('moment');
 const { Model } = require("objection");
 
 class Screens extends Model {
@@ -12,6 +13,13 @@ class Screens extends Model {
 
     $beforeUpdate() {
         this.updatedAt = new Date();
+    }
+
+    $formatJson(json) {
+        json = super.$formatJson(json);
+        json.endDate = moment(json.endDate).format('YYYY-MM-DD');
+        json.startDate = moment(json.startDate).format('YYYY-MM-DD');
+        return json;
     }
 
     static get relationMappings() {

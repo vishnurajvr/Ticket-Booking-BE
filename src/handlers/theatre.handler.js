@@ -85,4 +85,21 @@ TheatreHandler.deleteTheatre = async (req, res) => {
     }
 }
 
+TheatreHandler.getTheatresByMovieId = async (req, res) => {
+    try {
+
+        let query = req.query;
+        let params = req.params;
+
+        query = await theatreSchema.theatreQuery.validateAsync(query);
+        params = await theatreSchema.getMoviesSchema.validateAsync(params);
+
+        const result = await theatreSevice.getTheatresByMovieId(params, query);
+        return res.response(result).code(result.status);
+
+    } catch (e) {
+        return Response.error(e);
+    }
+}
+
 module.exports = TheatreHandler;

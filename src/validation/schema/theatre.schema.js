@@ -1,4 +1,5 @@
 const Joi = require('joi');
+const moment = require("moment");
 
 const createTheatre = Joi.object({
     isOpened: Joi.boolean().default(false),
@@ -18,6 +19,11 @@ const theatreQuery = Joi.object({
     search: Joi.string(),
     limit: Joi.number().default(10),
     page: Joi.number().required().default(1),
+    date: Joi.date().default(moment().format('YYYY-MM-DD')),
+});
+
+const getMoviesSchema = Joi.object({
+    movieId: Joi.number().required(),
 });
 
 module.exports = {
@@ -25,4 +31,5 @@ module.exports = {
     theatreParams,
     createTheatre,
     updateTheatre,
+    getMoviesSchema,
 };

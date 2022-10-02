@@ -5,7 +5,6 @@
  exports.up = function (knex) {
     return knex.schema.createTable('Shows', function (table) {
         table.increments('id').primary();
-        table.string('name', 50).notNullable();
         table.integer('movieId').unsigned().references('id').inTable('Movies').onDelete('CASCADE').onUpdate('CASCADE').notNullable();
         table.timestamps(true, true, true);
     });

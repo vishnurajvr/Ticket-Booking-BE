@@ -14,6 +14,12 @@ class Seats extends Model {
         this.updatedAt = new Date();
     }
 
+    $formatJson(json) {
+        json = super.$formatJson(json);
+        if (json?.reservationSeat?.length > 0) json.status = 'unavilable';
+        return json;
+    }
+
     static get relationMappings() {
 
         const Sections = require('./Sections');

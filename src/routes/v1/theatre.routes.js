@@ -31,6 +31,11 @@ const theatreRoutes = [
         path: '/',
         handler: theatreHandler.getAllTheatre
     },
+    {
+        method: 'GET',
+        path: '/movie/{movieId}',
+        handler: theatreHandler.getTheatresByMovieId
+    }
 ];
 
 module.exports = theatreRoutes;

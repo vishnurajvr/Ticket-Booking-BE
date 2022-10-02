@@ -1,14 +1,11 @@
 require('dotenv').config();
-
 const Hapi = require('@hapi/hapi');
 
 // DB connection
-const db = require('./src/database/db.config');
+require('./src/database/db.config');
 
-// Plugins
+// Plugins && Helper
 const plugins = require('./src/plugins');
-
-// Helper
 const authStrategy = require('./src/utils/authStrategy');
 
 const server = Hapi.server({
@@ -35,5 +32,4 @@ init();
 process.on('unhandledRejection', err => {
     console.log(err);
     console.log('-'.repeat(500));
-    process.exit(1);
 });

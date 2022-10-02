@@ -1,5 +1,4 @@
 module.exports = (count, limit, data) => {
-    console.log({count, limit, data})
     return {
         data,
         pageMeta: {

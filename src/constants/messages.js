@@ -8,4 +8,11 @@ module.exports = {
     updateMovieError1: 'Movie is already booked by user, so we couldn\'t change the date',
     deleteMovieError1: 'Movie is already booked by user, so we couldn\'t delete this movie',
     deleteMovieError2: 'Movie is already used by some theatres, so we couldn\'t delete this movie',
+    createScreenError1: 'Screens Name Already Exists. Please choose another screen name',
+    invalidTheatre: 'Invalid theatre!',
+    invalidMoviesSelected: 'Invalid movies selected',
+    invalidReleasedDate: "Invalid released date",
+    invalidSeats: 'Invalid seats',
+    invalidScreenId: 'Invalid screen id',
+    updateScreenError1: 'Sorry!, We counldn\'t disable this screen, because reservation is going on there!',
 };

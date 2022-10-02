@@ -6,7 +6,7 @@ exports.up = function(knex) {
     return knex.schema.createTable('Sections', (table) => {
         table.increments('id').primary();
         table.float('amount').notNullable();
-        table.string('rowName').notNullable();
+        table.string('name').notNullable();
         table.integer('rowCount').notNullable();
         table.integer('columnCount').notNullable();
         table.integer('totalSeats').notNullable();

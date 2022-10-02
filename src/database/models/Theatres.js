@@ -1,5 +1,4 @@
 const { Model } = require("objection");
-
 class Theatres extends Model {
 
     static get tableName() {

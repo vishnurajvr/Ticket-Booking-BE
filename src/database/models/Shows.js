@@ -19,7 +19,7 @@ class Shows extends Model {
         const Movies = require('./Movies');
 
         return {
-            screen: {
+            movie: {
                 relation: Model.BelongsToOneRelation,
                 modelClass: Movies,
                 join: {

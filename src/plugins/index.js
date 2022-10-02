@@ -20,6 +20,11 @@ const plugins = async (server) => {
         routes: { prefix: '/api/v1/movies' }
     });
 
+    await server.register({
+        plugin: require('./screens.plugins'),
+        routes: { prefix: '/api/v1/screens' }
+    });
+
 }
 
 module.exports = plugins;

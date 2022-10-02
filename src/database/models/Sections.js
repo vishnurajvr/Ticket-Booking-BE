@@ -32,7 +32,7 @@ class Sections extends Model {
                 relation: Model.HasManyRelation,
                 modelClass: Seats,
                 join: {
-                    from: 'Section.id',
+                    from: 'Sections.id',
                     to: 'Seats.sectionId'
                 }
             }

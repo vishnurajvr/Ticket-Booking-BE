@@ -1,0 +1,498 @@
+{
+    "name": "Screen -1",
+    "moviesId": 1,
+    "theatreId": 1,
+    "rowCount": 10,
+    "columnCount": 10,
+    "totalSeats": 79,
+    "isAvailable": true,
+    "startDate": "2022-10-12",
+    "endDate": "2022-10-20",
+    "timingsData": [
+        {
+            "timing": "4:30"
+        },
+        {
+            "timing": "8:00"
+        },
+        {
+            "timing": "11:30"
+        },
+        {
+            "timing": "15:00"
+        },
+        {
+            "timing": "18:30"
+        }
+    ],
+    "seactions": [
+        {
+            "name": "Class-A",
+            "amount": 190,
+            "rowCount": 5,
+            "columnCount": 10,
+            "totalSeats": 41,
+            "rowsData": [
+                {
+                    "seatsRowName": "A",
+                    "seats": [
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "1",
+                            "status": "available"
+                        },
+                        {
+                            "name": "2",
+                            "status": "available"
+                        },
+                        {
+                            "name": "3",
+                            "status": "available"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "4",
+                            "status": "available"
+                        },
+                        {
+                            "name": "5",
+                            "status": "available"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        }
+                    ]
+                },
+                {
+                    "seatsRowName": "B",
+                    "seats": [
+                        {
+                            "name": "1",
+                            "status": "available"
+                        },
+                        {
+                            "name": "2",
+                            "status": "available"
+                        },
+                        {
+                            "name": "3",
+                            "status": "available"
+                        },
+                        {
+                            "name": "4",
+                            "status": "available"
+                        },
+                        {
+                            "name": "5",
+                            "status": "available"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "6",
+                            "status": "available"
+                        },
+                        {
+                            "name": "7",
+                            "status": "available"
+                        },
+                        {
+                            "name": "8",
+                            "status": "available"
+                        },
+                        {
+                            "name": "9",
+                            "status": "available"
+                        }
+                    ]
+                },
+                {
+                    "seatsRowName": "C",
+                    "seats": [
+                        {
+                            "name": "1",
+                            "status": "available"
+                        },
+                        {
+                            "name": "2",
+                            "status": "available"
+                        },
+                        {
+                            "name": "3",
+                            "status": "available"
+                        },
+                        {
+                            "name": "4",
+                            "status": "available"
+                        },
+                        {
+                            "name": "5",
+                            "status": "available"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "6",
+                            "status": "available"
+                        },
+                        {
+                            "name": "7",
+                            "status": "available"
+                        },
+                        {
+                            "name": "8",
+                            "status": "available"
+                        },
+                        {
+                            "name": "9",
+                            "status": "available"
+                        }
+                    ]
+                },
+                {
+                    "seatsRowName": "D",
+                    "seats": [
+                        {
+                            "name": "1",
+                            "status": "available"
+                        },
+                        {
+                            "name": "2",
+                            "status": "available"
+                        },
+                        {
+                            "name": "3",
+                            "status": "available"
+                        },
+                        {
+                            "name": "4",
+                            "status": "available"
+                        },
+                        {
+                            "name": "5",
+                            "status": "available"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "6",
+                            "status": "available"
+                        },
+                        {
+                            "name": "7",
+                            "status": "available"
+                        },
+                        {
+                            "name": "8",
+                            "status": "available"
+                        },
+                        {
+                            "name": "9",
+                            "status": "available"
+                        }
+                    ]
+                },
+                {
+                    "seatsRowName": "E",
+                    "seats": [
+                        {
+                            "name": "1",
+                            "status": "available"
+                        },
+                        {
+                            "name": "2",
+                            "status": "available"
+                        },
+                        {
+                            "name": "3",
+                            "status": "available"
+                        },
+                        {
+                            "name": "4",
+                            "status": "available"
+                        },
+                        {
+                            "name": "5",
+                            "status": "available"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "6",
+                            "status": "available"
+                        },
+                        {
+                            "name": "7",
+                            "status": "available"
+                        },
+                        {
+                            "name": "8",
+                            "status": "available"
+                        },
+                        {
+                            "name": "9",
+                            "status": "available"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Class-B",
+            "amount": 120,
+            "rowCount": 5,
+            "columnCount": 10,
+            "totalSeats": 38,
+            "rowsData": [
+                {
+                    "seatsRowName": "F",
+                    "seats": [
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "1",
+                            "status": "available"
+                        },
+                        {
+                            "name": "2",
+                            "status": "available"
+                        }
+                    ]
+                },
+                {
+                    "seatsRowName": "G",
+                    "seats": [
+                        {
+                            "name": "1",
+                            "status": "available"
+                        },
+                        {
+                            "name": "2",
+                            "status": "available"
+                        },
+                        {
+                            "name": "3",
+                            "status": "available"
+                        },
+                        {
+                            "name": "4",
+                            "status": "available"
+                        },
+                        {
+                            "name": "5",
+                            "status": "available"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "6",
+                            "status": "available"
+                        },
+                        {
+                            "name": "7",
+                            "status": "available"
+                        },
+                        {
+                            "name": "8",
+                            "status": "available"
+                        },
+                        {
+                            "name": "9",
+                            "status": "available"
+                        }
+                    ]
+                },
+                {
+                    "seatsRowName": "H",
+                    "seats": [
+                        {
+                            "name": "1",
+                            "status": "available"
+                        },
+                        {
+                            "name": "2",
+                            "status": "available"
+                        },
+                        {
+                            "name": "3",
+                            "status": "available"
+                        },
+                        {
+                            "name": "4",
+                            "status": "available"
+                        },
+                        {
+                            "name": "5",
+                            "status": "available"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "6",
+                            "status": "available"
+                        },
+                        {
+                            "name": "7",
+                            "status": "available"
+                        },
+                        {
+                            "name": "8",
+                            "status": "available"
+                        },
+                        {
+                            "name": "9",
+                            "status": "available"
+                        }
+                    ]
+                },
+                {
+                    "seatsRowName": "I",
+                    "seats": [
+                        {
+                            "name": "1",
+                            "status": "available"
+                        },
+                        {
+                            "name": "2",
+                            "status": "available"
+                        },
+                        {
+                            "name": "3",
+                            "status": "available"
+                        },
+                        {
+                            "name": "4",
+                            "status": "available"
+                        },
+                        {
+                            "name": "5",
+                            "status": "available"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "6",
+                            "status": "available"
+                        },
+                        {
+                            "name": "7",
+                            "status": "available"
+                        },
+                        {
+                            "name": "8",
+                            "status": "available"
+                        },
+                        {
+                            "name": "9",
+                            "status": "available"
+                        }
+                    ]
+                },
+                {
+                    "seatsRowName": "J",
+                    "seats": [
+                        {
+                            "name": "1",
+                            "status": "available"
+                        },
+                        {
+                            "name": "2",
+                            "status": "available"
+                        },
+                        {
+                            "name": "3",
+                            "status": "available"
+                        },
+                        {
+                            "name": "4",
+                            "status": "available"
+                        },
+                        {
+                            "name": "5",
+                            "status": "available"
+                        },
+                        {
+                            "name": "",
+                            "status": "hidden"
+                        },
+                        {
+                            "name": "6",
+                            "status": "available"
+                        },
+                        {
+                            "name": "7",
+                            "status": "available"
+                        },
+                        {
+                            "name": "8",
+                            "status": "available"
+                        },
+                        {
+                            "name": "9",
+                            "status": "available"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
