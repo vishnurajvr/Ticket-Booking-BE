@@ -90,7 +90,7 @@ const validateReservation = async ({ movieId, theatreId, screenId, timingId, dat
         if (seatsId.length !== getSeatsPrice?.length) throw new Error(messages.invalidSeats, 400);
 
         // Hidden and Unavailable seats
-        if (getSeatsPrice?.find(x => x.status !== 'available')) throw new Error('Invalid seats');
+        if (getSeatsPrice?.find(x => x.status !== 'available')) throw new Error(messages.invalidSeats);
 
         // Price
         let totalAmount = getSeatsPrice.reduce((value, accum) => {

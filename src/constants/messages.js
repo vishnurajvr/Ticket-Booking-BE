@@ -19,5 +19,6 @@ module.exports = {
     invalidDateSelected: 'Invalid date selected',
     invalidPrice: 'Invalid total amounts',
     recordNotFound: 'Record Not Found',
-    createReservationError: 'Invalid total seats count'
+    createReservationError: 'Invalid total seats count',
+    screenSizeNotMatch: 'Screen size is not matched for other screen'
 };

@@ -4,7 +4,7 @@ User:
     password
     mobileNumber
     role -> super admin, admin , user
-    gender -> Male, Female, User
+    gender -> Male, Female, other
     createdAt
     updatedAt
 
@@ -12,59 +12,87 @@ Theaters:
     id
     name
     userId
-    isClosed
+    isOpened
+    createdAt
+    updatedAt
+
+Movies:
+    id
+    name
+    duration // Minutes
+    description
+    languages
+    releaseData
+    createdAt
+    updatedAt
+
+Shows:
+    id
+    movieId
+    createdAt
+    updatedAt
+
+Timing:
+    id
+    timing
+    screenId
+    displayTiming
     createdAt
     updatedAt
 
 Screens:
     id
     name
-    price
     movieId
-    rowsCount
-    columnsCount
-    description
+    rowCount
+    columnCount
     theaterId
     totalSeats
     isAvailable
-    createdAt
-    updatedAt
-    createdBy // @TODO
-
-Timing:
-    id
-    screenId
-    startTime
-    endTime
-    timing - concat (startTime + endTime)
+    startDate
+    endDate
     createdAt
     updatedAt
 
-Movie:
+Sections:
     id
     name
-    duration // Minutes
+    amount
+    screenId
+    rowCount
+    columnCount
+    totalSeats
     createdAt
     updatedAt
 
 Seats:
     id
-    screenId
-    timingId
-    seatName
-    isBooked
+    name
+    status
+    sectionId
+    seatsRowName
     createdAt
     updatedAt
 
 Reservation:
     id
+    date
     userId
     amount
-    date
     theatreId
     screenId
     timingId
-    seatsId -> Array[]
+    movieId
+    totalSeats
+    createdAt
+    updatedAt
+
+ReservationSeats:
+    id
+    userId
+    seatsId
+    displayName
+    reservationId
     createdAt
     updatedAt
 
